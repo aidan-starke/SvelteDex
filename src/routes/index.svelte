@@ -13,7 +13,7 @@
 				poke.name.toLowerCase().includes(searchTerm.toLowerCase())
 			);
 		} else {
-			filteredPokemon = [...$pokemon];
+			filteredPokemon = [...$pokemon.slice(0, 151)];
 		}
 	}
 </script>
