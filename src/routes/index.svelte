@@ -1,17 +1,19 @@
 <script lang="ts">
-import type { Poke, Pokemon } from "@/types";
+	import type { PokemonSimple, Pokemon } from "@/types";
 
 	import { pokemon } from "@/stores/pokemart";
 	import PokeCard from "@/components/pokeCard.svelte";
 
 	let searchTerm = "";
-	let filteredPokemon = [] as Pokemon[];
+	let filteredPokemon: Pokemon;
 
 	$: {
 		if (searchTerm) {
-			filteredPokemon = $pokemon.filter((poke: Poke) => poke.name.toLowerCase().includes(searchTerm.toLowerCase()))
+			filteredPokemon = $pokemon.filter((poke: PokemonSimple) =>
+				poke.name.toLowerCase().includes(searchTerm.toLowerCase())
+			);
 		} else {
-			filteredPokemon = [...$pokemon]
+			filteredPokemon = [...$pokemon];
 		}
 	}
 </script>
@@ -22,7 +24,12 @@ import type { Poke, Pokemon } from "@/types";
 
 <h1 class="text-4xl text-center my-8">SvelteDex</h1>
 
-<input type="text" placeholder="Search Pokemon" class="w-full rounded-md text-lg p-4 border-2 border-gray-200" bind:value={searchTerm} />
+<input
+	type="text"
+	placeholder="Search Pokemon"
+	class="w-full rounded-md text-lg p-4 border-2 border-gray-200"
+	bind:value={searchTerm}
+/>
 
 <div class="grid gap-4 md:grid-cols-2 grid-cols-1 py-4">
 	{#each filteredPokemon as poke}
