@@ -2,7 +2,7 @@
 	import type { PokemonSimple, Pokemon } from "@/types";
 
 	import { pokemon } from "@/stores/pokemart";
-	import PokeCard from "@/components/pokeCard.svelte";
+	import PokeCard from "@/components/poke-card.svelte";
 
 	let searchTerm = "";
 	let filteredPokemon: Pokemon;
@@ -22,7 +22,9 @@
 	<title>SvelteDex | Home</title>
 </svelte:head>
 
-<h1 class="text-4xl text-center my-8">SvelteDex</h1>
+<h1 class="text-4xl text-center mb-8 tracking-wide font-montserrat">
+	SvelteDex
+</h1>
 
 <input
 	type="text"

@@ -16,10 +16,14 @@
 </script>
 
 <div class="flex flex-col items-center">
-	<h1 class="text-4xl text-center my-8 uppercase">{poke.name}</h1>
+	<h1 class="text-4xl text-center mb-8 uppercase">{poke.name}</h1>
 	<p>
 		Type: <strong>{type}</strong> | Height: <strong>{poke.height}</strong> |
 		Weight <strong>{poke.weight}</strong>
 	</p>
-	<img class="card-image" src={poke.sprites["front_default"]} alt={poke.name} />
+	<img
+		class="card-image h-44 w-44"
+		src={poke.sprites["front_default"]}
+		alt={poke.name}
+	/>
 </div>
